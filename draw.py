@@ -59,9 +59,9 @@ def draw_one(data: [], the_thing):
     avg = calc_avg_one(data, the_thing)
 
     ax = plt.subplot(111)
-    ax.bar(0 + 1 - 0.2, avg[0], width=0.2, color='b', align='center', label='bfs')
-    ax.bar(0 + 1, avg[0 + 7], width=0.2, color='g', align='center', label='dfs')
-    ax.bar(0 + 1 + 0.2, avg[0 + 14], width=0.2, color='r', align='center', label='astar')
+    ax.bar(0 + 1 - 0.2, avg[0], width=0.2, color='b', align='center', label='BFS')
+    ax.bar(0 + 1, avg[0 + 7], width=0.2, color='g', align='center', label='DFS')
+    ax.bar(0 + 1 + 0.2, avg[0 + 14], width=0.2, color='r', align='center', label='A*')
     for j in range(1, int(len(avg) / 3)):
         ax.bar(j + 1 - 0.2, avg[j], width=0.2, color='b', align='center')
         ax.bar(j + 1, avg[j + 7], width=0.2, color='g', align='center')
@@ -101,7 +101,7 @@ def draw_two(data: [], the_thing):
 
     ax = plt.subplot(111)
     ax.bar(0 + 1 - 0.2, avg[0], width=0.2, color='b', align='center', label='Hamming')
-    ax.bar(0 + 1, avg[0 + 7], width=0.2, color='g', align='center', label='Manhatten')
+    ax.bar(0 + 1, avg[0 + 7], width=0.2, color='g', align='center', label='Manhattan')
     for j in range(1, int(len(avg) / 2)):
         ax.bar(j + 1 - 0.2, avg[j], width=0.2, color='b', align='center')
         ax.bar(j + 1, avg[j + 7], width=0.2, color='g', align='center')
