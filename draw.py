@@ -31,16 +31,17 @@ def calc_avg_one(data, the_thing):
                 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]]  # astr
 
     for line in data:
-        match line[2]:
-            case "bfs":
-                solution[0][int(line[0]) - 1][0] += float(line[the_thing])
-                solution[0][int(line[0]) - 1][1] += 1
-            case "dfs":
-                solution[1][int(line[0]) - 1][0] += float(line[the_thing])
-                solution[1][int(line[0]) - 1][1] += 1
-            case "astr":
-                solution[2][int(line[0]) - 1][0] += float(line[the_thing])
-                solution[2][int(line[0]) - 1][1] += 1
+        if float(line[the_thing]) != -1:
+            match line[2]:
+                case "bfs":
+                    solution[0][int(line[0]) - 1][0] += float(line[the_thing])
+                    solution[0][int(line[0]) - 1][1] += 1
+                case "dfs":
+                    solution[1][int(line[0]) - 1][0] += float(line[the_thing])
+                    solution[1][int(line[0]) - 1][1] += 1
+                case "astr":
+                    solution[2][int(line[0]) - 1][0] += float(line[the_thing])
+                    solution[2][int(line[0]) - 1][1] += 1
 
     avg = []
     for sol in solution:
@@ -89,13 +90,14 @@ def calc_avg_two(data, the_thing):
                 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]]  # manh
 
     for line in data:
-        match line[3]:
-            case "hamm":
-                solution[0][int(line[0]) - 1][0] += float(line[the_thing])
-                solution[0][int(line[0]) - 1][1] += 1
-            case "manh":
-                solution[1][int(line[0]) - 1][0] += float(line[the_thing])
-                solution[1][int(line[0]) - 1][1] += 1
+        if float(line[the_thing]) != -1:
+            match line[3]:
+                case "hamm":
+                    solution[0][int(line[0]) - 1][0] += float(line[the_thing])
+                    solution[0][int(line[0]) - 1][1] += 1
+                case "manh":
+                    solution[1][int(line[0]) - 1][0] += float(line[the_thing])
+                    solution[1][int(line[0]) - 1][1] += 1
 
     avg = []
     for sol in solution:
@@ -144,7 +146,7 @@ def calc_avg_three_and_four(data, the_thing, isdfs=0):
         isdfs = "bfs"
 
     for line in data:
-        if line[2] == isdfs:
+        if line[2] == isdfs and float(line[the_thing]) != -1:
             match line[3]:
                 case "rdul":
                     solution[0][int(line[0]) - 1][0] += float(line[the_thing])
