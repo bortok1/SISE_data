@@ -66,13 +66,17 @@ def draw_one(data: [], the_thing):
         ax.bar(j + 1 - 0.2, avg[j], width=0.2, color='b', align='center')
         ax.bar(j + 1, avg[j + 7], width=0.2, color='g', align='center')
         ax.bar(j + 1 + 0.2, avg[j + 14], width=0.2, color='r', align='center')
-
+    plt.yscale(value='log')
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('Ogółem')
 
-    ax.legend()
+    # Shrink current axis by 10%
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.90, box.height])
 
+    # Put a legend to the right of the current axis
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.show()
 
 
@@ -105,12 +109,17 @@ def draw_two(data: [], the_thing):
     for j in range(1, int(len(avg) / 2)):
         ax.bar(j + 1 - 0.2, avg[j], width=0.2, color='b', align='center')
         ax.bar(j + 1, avg[j + 7], width=0.2, color='g', align='center')
-
+    plt.yscale(value='log')
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('A*')
 
-    ax.legend()
+    # Shrink current axis by 15%
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.85, box.height])
+
+    # Put a legend to the right of the current axis
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
     plt.show()
 
@@ -191,12 +200,17 @@ def draw_three(data: [], the_thing):
     ax = plt.subplot(111)
 
     help_draw_three_four(ax, avg)
-
+    plt.yscale(value='log')
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('BFS')
 
-    ax.legend()
+    # Shrink current axis by 10%
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.90, box.height])
+
+    # Put a legend to the right of the current axis
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
     plt.show()
 
@@ -206,11 +220,16 @@ def draw_four(data: [], the_thing):
     ax = plt.subplot(111)
 
     help_draw_three_four(ax, avg)
-
+    plt.yscale(value='log')
+    #plt.yscale(value='linear')
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('DFS')
 
-    ax.legend()
+    # Shrink current axis by 10%
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.90, box.height])
 
+    # Put a legend to the right of the current axis
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.show()

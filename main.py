@@ -24,5 +24,7 @@ def main():
         draw.draw_four(data, i)
     # draw.draw_one(data, 4)
 
+
 if __name__ == '__main__':
     main()
+
