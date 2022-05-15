@@ -66,7 +66,11 @@ def draw_one(data: [], the_thing):
         ax.bar(j + 1 - 0.2, avg[j], width=0.2, color='b', align='center')
         ax.bar(j + 1, avg[j + 7], width=0.2, color='g', align='center')
         ax.bar(j + 1 + 0.2, avg[j + 14], width=0.2, color='r', align='center')
-    plt.yscale(value='log')
+
+    if the_thing == 5 or the_thing == 6 or the_thing == 8:
+        plt.yscale(value='log')
+    else:
+        plt.yscale(value='linear')
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('Ogółem')
@@ -109,11 +113,11 @@ def draw_two(data: [], the_thing):
     for j in range(1, int(len(avg) / 2)):
         ax.bar(j + 1 - 0.2, avg[j], width=0.2, color='b', align='center')
         ax.bar(j + 1, avg[j + 7], width=0.2, color='g', align='center')
-    plt.yscale(value='log')
+
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('A*')
-
+    plt.yscale(value='linear')
     # Shrink current axis by 15%
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.85, box.height])
@@ -183,7 +187,7 @@ def help_draw_three_four(ax, avg):
     ax.bar(1 + 0.12, avg[28], width=0.12, color='grey', align='center', label='LUDR')
     ax.bar(1 + 0.24, avg[35], width=0.12, color='pink', align='center', label='LURD')
     ax.bar(1 + 0.36, avg[42], width=0.12, color='yellow', align='center', label='ULDR')
-    ax.bar(1 + 0.48, avg[49], width=0.12, color='yellow', align='center', label='ULRD')
+    ax.bar(1 + 0.48, avg[49], width=0.12, color='brown', align='center', label='ULRD')
     for j in range(1, int(len(avg) / 7) - 1):
         ax.bar(j + 1 - 0.36, avg[j], width=0.12, color='red', align='center')
         ax.bar(j + 1 - 0.24, avg[j + 7], width=0.12, color='green', align='center')
@@ -192,7 +196,7 @@ def help_draw_three_four(ax, avg):
         ax.bar(j + 1 + 0.12, avg[j + 28], width=0.12, color='grey', align='center')
         ax.bar(j + 1 + 0.24, avg[j + 35], width=0.12, color='pink', align='center')
         ax.bar(j + 1 + 0.36, avg[j + 42], width=0.12, color='yellow', align='center')
-        ax.bar(j + 1 + 0.48, avg[j + 49], width=0.12, color='yellow', align='center')
+        ax.bar(j + 1 + 0.48, avg[j + 49], width=0.12, color='brown', align='center')
 
 
 def draw_three(data: [], the_thing):
@@ -200,7 +204,12 @@ def draw_three(data: [], the_thing):
     ax = plt.subplot(111)
 
     help_draw_three_four(ax, avg)
-    plt.yscale(value='log')
+
+    if the_thing == 5 or the_thing == 6 or the_thing == 8:
+        plt.yscale(value='log')
+    else:
+        plt.yscale(value='linear')
+
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('BFS')
@@ -220,8 +229,12 @@ def draw_four(data: [], the_thing):
     ax = plt.subplot(111)
 
     help_draw_three_four(ax, avg)
-    plt.yscale(value='log')
-    #plt.yscale(value='linear')
+
+    if the_thing == 5 or the_thing == 6 or the_thing == 8:
+        plt.yscale(value='log')
+    else:
+        plt.yscale(value='linear')
+
     plt.ylabel(kryterium(the_thing))
     plt.xlabel('Głębokość')
     plt.title('DFS')
